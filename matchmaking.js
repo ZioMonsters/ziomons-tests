@@ -1,18 +1,24 @@
 const genTeam = require('./genTeam.js');
 
 const { log } = console;
+const { round } = Math;
 
 const teams = [];
 
-for (let i = 0; i < 4096; i++) {
+for (let i = 0; i < 32767; i++) {
   const t0 = genTeam();
-  const l0 = t0.reduce((acc, {level}) => acc+level, 0)/5;
+  const l0 = round(t0.reduce((acc, {level}) => acc+level, 0)/5);
+
   //25 level zones
-  teams[l0/4].push(t0);
+  const zone = round(l0/4);
+  if (teams[zone])
+    teams[zone].push(t0);
+  else
+    teams[zone] = [t0];
 
 }
-log(teams);
-log(teams.map(e => e.reduce((acc) => acc++, 0)));
+//log(teams);
+//log(teams.map(e => e.reduce((acc) => acc++, 0)));
 
 /*
 * returns array of arrays:
