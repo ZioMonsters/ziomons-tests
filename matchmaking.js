@@ -9,7 +9,7 @@ module.exports = () =>  {
   while (true) {
     t1 = genTeam();
     const l1 = round(t0.reduce((acc, {level}) => acc+level, 0)/5);
-    if (l1 == l0)
+    if (l1 === l0)
       return([t0, t1]);
   }
 };
