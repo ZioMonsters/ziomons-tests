@@ -4,9 +4,7 @@ const fs = require('fs');
 let counter1 = 0, counter2 = 0;
 
   const battle = () => {
-    const teams = matchmaking();
-    const team1 = teams[0];
-    const team2 = teams[1];
+    const [team1, team2] = matchmaking();
     const results = [];
     let score1 = 0, score2 = 0;
 
@@ -39,7 +37,7 @@ let counter1 = 0, counter2 = 0;
   else counter2++;
   }
 
-const matches = 400;
+const matches = 2000;
 
 for(let i = 0; i<matches; i++){
   battle();
