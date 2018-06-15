@@ -22,8 +22,8 @@ module.exports = {
     monster = {
       level: level,
       attackPower: statGenerator(level, rarity),
-      defensePower: App.statGenerator(level, rarity),
-      speed: App.statGenerator(level, rarity),
+      defensePower: statGenerator(level, rarity),
+      speed: statGenerator(level, rarity),
       rarity: rarity
     };
 
