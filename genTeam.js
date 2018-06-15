@@ -7,7 +7,7 @@ const { genMonster } = require('./genMonster.js');
 const getSquad = (level) => {
   const squad = [];
   for(let i = 0; i < 5; i++) {
-    squad.push(genMonster(Math.floor((Math.random() * 5) + level)));
+    squad.push(genMonster(Math.floor((Math.random() * 20) + level)));
   }
   return squad;
 };
