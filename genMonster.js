@@ -1,52 +1,32 @@
-const statGenerator = (level, rarity) => {
-  const rarityModifiers = [5, 10, 15, 20]
-  if (level <= 20) {
-    return Math.floor((Math.random() * 16) + 1) + rarityModifiers[rarity - 1];
-  } else if (level <= 40) {
-    return Math.floor((Math.random() * 32) + 1) + rarityModifiers[rarity - 1];
-  } else if (level <= 60) {
-    return Math.floor((Math.random() * 48) + 1) + rarityModifiers[rarity - 1];
-  } else if (level <= 80) {
-    return Math.floor((Math.random() * 64) + 1) + rarityModifiers[rarity - 1];
-  } else if (level <= 100) {
-    return Math.floor((Math.random() * 80) + 1) + rarityModifiers[rarity - 1];
-  }
-}
-
 module.exports = {
   
   genMonster: (level) => {
-    const maxStats = 80;
     const maxRarity = 4;
     const rarity = Math.floor((Math.random() * maxRarity) + 1);
     monster = {
-      level: level,
+      level,
       attackPower: statGenerator(level, rarity),
       defensePower: statGenerator(level, rarity),
-      speed: statGenerator(level, rarity),
-      rarity: rarity
+      speed: Math.floor((Math.random() * 100) + 1),
+      rarity
     };
-
     return monster;
     
-    /*
-      Restituisce un oggetto con chiavi:
-      level (1-100), attackPower (1-100), defensePower (1-100), speed (1-100), rarity (1-4)
-    */
+    /** Restituisce un oggetto con chiavi: **/
+    /** level (1-100), attackPower (1-100), defensePower (1-100), speed (1-100), rarity (1-4) **/
+
   },
 
   levelUpMonster: (monster) => {
-    //monster[Object.keys(monster)[Math.floor(Math.random() * 4)]];
-
-    /*
-      Restituisce il mostro livellato di 1 in un parametro casuale
-    */
+    // todo
+    
+    /** Restituisce il mostro livellato di 1 in un parametro casuale **/
+  
   },
 };
 
-/*
-for(let i = 0; i < 10; i ++) {
-  const monster = App.genMonster(Math.floor((Math.random() * 100) + 1));
-  console.log(monster);
+/* -- Testing --
+for (let i = 0; i < 10; i++) {
+  console.log(App.genMonster(Math.floor((Math.random() * 100) + 1)));
 }
 */
