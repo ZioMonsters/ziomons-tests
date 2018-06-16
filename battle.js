@@ -1,5 +1,6 @@
 const matchmaking = require('./matchmaking.js'); //[[squadra1], [squadra2]]
 const fs = require('fs');
+const argv = require('simple-argv');
 
 let counter1 = 0, counter2 = 0;
 
@@ -32,15 +33,15 @@ let counter1 = 0, counter2 = 0;
 
 
   const output = `${results.toString()} winner is: ${(score1>score2)? 1:2} percentage winning: ${(score1>score2)? score1/5*100:score2/5*100}%\n`
-  fs.appendFileSync('./data.txt', output);
+  fs.appendFileSync(`./${argv._[0]}`, output);
   if(score1>score2) counter1++
   else counter2++;
   }
 
-const matches = 2000;
+const matches = 10000;
 
 for(let i = 0; i<matches; i++){
   battle();
 }
 
-fs.appendFileSync('./data.txt', `winning ${(counter1>counter2)? 1:2} in ${(counter1>counter2)? counter1/matches*100:counter2/matches*100}%`);
+fs.appendFileSync(`./${argv._[0]}`, `winning ${(counter1>counter2)? 1:2} in ${(counter1>counter2)? counter1/matches*100:counter2/matches*100}%`);
