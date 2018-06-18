@@ -1,5 +1,5 @@
 module.exports = {
-  
+
   genMonster: (level) => {
     const maxRarity = 4;
     const rarity = Math.floor((Math.random() * maxRarity) + 1);
@@ -10,9 +10,9 @@ module.exports = {
       speed: Math.floor((Math.random() * 100) + 1),
       rarity
     };
-    
+
     return monster;
-    
+
     /** Restituisce un oggetto con chiavi: **/
     /** level (1-100), attackPower (1-100), defensePower (1-100), speed (1-100), rarity (1-4) **/
 
